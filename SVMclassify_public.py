@@ -1,7 +1,7 @@
 '''
 MIT License
 
-Copyright (c) 2024, Oregon Health & Science Univeristy
+Copyright (c) 2025, Oregon Health & Science Univeristy
 
 Contributor(s): Jason Ware (warej@ohsu.edu)
 
@@ -132,4 +132,5 @@ y_pred = svm_classifier.predict(X)
 misclassification_percentage = (1 - accuracy_score(y, y_pred)) * 100
 
 print(f'Misclassification Percentage: {misclassification_percentage:.2f}%')
+
 
