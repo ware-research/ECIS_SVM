@@ -18,7 +18,6 @@ xscale = 'linear'
 X = data[features].values
 y = data['Dx'].values
 
-
 # Train SVM svm_classifier
 svm_classifier = make_pipeline(
     StandardScaler(),
@@ -57,7 +56,6 @@ plt.contourf(xx, yy, Z, alpha=1, cmap=cmap_background)
 plt.gcf().set_facecolor('#708D9C')
 plt.scatter(X[:, 0], X[:, 1], c=y, s=20, cmap=cmap_points, edgecolor='black', linewidth=0.5)
 
-# Custom legend for Dx values
 import matplotlib.patches as mpatches
 legend_handles = [
     mpatches.Patch(color='green', label='Dx = 0'),
@@ -75,7 +73,7 @@ plt.ylim(0, 1.)
 plt.subplots_adjust(bottom=0.2) 
 plt.show()
 
-#ROC Curve Plotting
+#ROC 
 fpr, tpr, _ = roc_curve(y, y_prob)
 roc_auc = roc_auc_score(y, y_prob)
 
@@ -95,7 +93,8 @@ plt.title('Receiver Operating Characteristic (ROC) Curve')
 plt.legend(loc='lower right')
 plt.show()
 
-#misclassification percentage
+#misclassification
 y_pred = svm_classifier.predict(X)
 misclassification_percentage = (1 - accuracy_score(y, y_pred)) * 100
+
 print(f'Misclassification Percentage: {misclassification_percentage:.2f}%')
